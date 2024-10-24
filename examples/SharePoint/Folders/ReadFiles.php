@@ -23,7 +23,7 @@ function forEachFile(Folder $parentFolder, $recursive, callable  $action, $level
 
     if ($recursive) {
         /** @var Folder $folder */
-        foreach ($parentFolder->getFolders() as $folder) {
+        foreach ($parentFolder->getFolders()->get()->executeQuery() as $folder) {
             forEachFile($folder, $recursive, $action, $level++);
         }
     }
